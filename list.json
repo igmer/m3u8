@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "sections": [
+      { "id": "country", "title": { "en": "By country", "es": "Por país" },
+        "lists": [
+          { "id": "mx", "region": "MX",
+            "name": { "en": "Mexico", "es": "México" },
+            "url": "https://iptv-org.github.io/iptv/countries/mx.m3u",
+            "channels": 171 }
+        ] }
+    ]
+  }
