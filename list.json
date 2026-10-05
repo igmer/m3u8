@@ -1,12 +1,340 @@
 {
-    "version": 1,
-    "sections": [
-      { "id": "country", "title": { "en": "By country", "es": "Por país" },
-        "lists": [
-          { "id": "mx", "region": "MX",
-            "name": { "en": "Mexico", "es": "México" },
-            "url": "https://iptv-org.github.io/iptv/countries/mx.m3u",
-            "channels": 171 }
-        ] }
-    ]
-  }
+  "version": 1,
+  "sections": [
+    {
+      "id": "country",
+      "title": {
+        "en": "By country",
+        "es": "Por país"
+      },
+      "lists": [
+        {
+          "id": "mx",
+          "region": "MX",
+          "name": {
+            "en": "Mexico",
+            "es": "México"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/mx.m3u",
+          "channels": 171
+        },
+        {
+          "id": "es",
+          "region": "ES",
+          "name": {
+            "en": "Spain",
+            "es": "España"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/es.m3u",
+          "channels": 327
+        },
+        {
+          "id": "ar",
+          "region": "AR",
+          "name": {
+            "en": "Argentina",
+            "es": "Argentina"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/ar.m3u",
+          "channels": 185
+        },
+        {
+          "id": "co",
+          "region": "CO",
+          "name": {
+            "en": "Colombia",
+            "es": "Colombia"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/co.m3u",
+          "channels": 127
+        },
+        {
+          "id": "cl",
+          "region": "CL",
+          "name": {
+            "en": "Chile",
+            "es": "Chile"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/cl.m3u",
+          "channels": 242
+        },
+        {
+          "id": "pe",
+          "region": "PE",
+          "name": {
+            "en": "Peru",
+            "es": "Perú"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/pe.m3u",
+          "channels": 192
+        },
+        {
+          "id": "ve",
+          "region": "VE",
+          "name": {
+            "en": "Venezuela",
+            "es": "Venezuela"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/ve.m3u",
+          "channels": 83
+        },
+        {
+          "id": "ec",
+          "region": "EC",
+          "name": {
+            "en": "Ecuador",
+            "es": "Ecuador"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/ec.m3u",
+          "channels": 97
+        },
+        {
+          "id": "gt",
+          "region": "GT",
+          "name": {
+            "en": "Guatemala",
+            "es": "Guatemala"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/gt.m3u",
+          "channels": 66
+        },
+        {
+          "id": "sv",
+          "region": "SV",
+          "name": {
+            "en": "El Salvador",
+            "es": "El Salvador"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/sv.m3u",
+          "channels": 39
+        },
+        {
+          "id": "hn",
+          "region": "HN",
+          "name": {
+            "en": "Honduras",
+            "es": "Honduras"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/hn.m3u",
+          "channels": 78
+        },
+        {
+          "id": "ni",
+          "region": "NI",
+          "name": {
+            "en": "Nicaragua",
+            "es": "Nicaragua"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/ni.m3u",
+          "channels": 19
+        },
+        {
+          "id": "cr",
+          "region": "CR",
+          "name": {
+            "en": "Costa Rica",
+            "es": "Costa Rica"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/cr.m3u",
+          "channels": 65
+        },
+        {
+          "id": "pa",
+          "region": "PA",
+          "name": {
+            "en": "Panama",
+            "es": "Panamá"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/pa.m3u",
+          "channels": 25
+        },
+        {
+          "id": "do",
+          "region": "DO",
+          "name": {
+            "en": "Dominican Republic",
+            "es": "República Dominicana"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/do.m3u",
+          "channels": 255
+        },
+        {
+          "id": "pr",
+          "region": "PR",
+          "name": {
+            "en": "Puerto Rico",
+            "es": "Puerto Rico"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/pr.m3u",
+          "channels": 28
+        },
+        {
+          "id": "bo",
+          "region": "BO",
+          "name": {
+            "en": "Bolivia",
+            "es": "Bolivia"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/bo.m3u",
+          "channels": 86
+        },
+        {
+          "id": "py",
+          "region": "PY",
+          "name": {
+            "en": "Paraguay",
+            "es": "Paraguay"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/py.m3u",
+          "channels": 78
+        },
+        {
+          "id": "uy",
+          "region": "UY",
+          "name": {
+            "en": "Uruguay",
+            "es": "Uruguay"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/uy.m3u",
+          "channels": 18
+        },
+        {
+          "id": "us",
+          "region": "US",
+          "name": {
+            "en": "United States",
+            "es": "Estados Unidos"
+          },
+          "url": "https://iptv-org.github.io/iptv/countries/us.m3u",
+          "channels": 1451
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "title": {
+        "en": "By language",
+        "es": "Por idioma"
+      },
+      "lists": [
+        {
+          "id": "spa",
+          "name": {
+            "en": "Everything in Spanish",
+            "es": "Todo en español"
+          },
+          "url": "https://iptv-org.github.io/iptv/languages/spa.m3u",
+          "channels": 2322
+        }
+      ]
+    },
+    {
+      "id": "topic",
+      "title": {
+        "en": "By topic (all languages)",
+        "es": "Por tema (todos los idiomas)"
+      },
+      "lists": [
+        {
+          "id": "news",
+          "name": {
+            "en": "News",
+            "es": "Noticias"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/news.m3u",
+          "channels": 1035
+        },
+        {
+          "id": "sports",
+          "name": {
+            "en": "Sports",
+            "es": "Deportes"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
+          "channels": 445
+        },
+        {
+          "id": "kids",
+          "name": {
+            "en": "Kids",
+            "es": "Infantil"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/kids.m3u",
+          "channels": 411
+        },
+        {
+          "id": "animation",
+          "name": {
+            "en": "Animation",
+            "es": "Animación"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/animation.m3u",
+          "channels": 160
+        },
+        {
+          "id": "music",
+          "name": {
+            "en": "Music",
+            "es": "Música"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/music.m3u",
+          "channels": 759
+        },
+        {
+          "id": "movies",
+          "name": {
+            "en": "Movies",
+            "es": "Películas"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/movies.m3u",
+          "channels": 782
+        },
+        {
+          "id": "documentary",
+          "name": {
+            "en": "Documentaries",
+            "es": "Documentales"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/documentary.m3u",
+          "channels": 254
+        },
+        {
+          "id": "comedy",
+          "name": {
+            "en": "Comedy",
+            "es": "Comedia"
+          },
+          "url": "https://iptv-org.github.io/iptv/categories/comedy.m3u",
+          "channels": 214
+        }
+      ]
+    },
+    {
+      "id": "big",
+      "title": {
+        "en": "Large playlists",
+        "es": "Listas grandes"
+      },
+      "lists": [
+        {
+          "id": "free-tv",
+          "name": {
+            "en": "Free-TV: free channels worldwide",
+            "es": "Free-TV: canales gratuitos del mundo"
+          },
+          "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8",
+          "channels": 2080
+        },
+        {
+          "id": "iptv-org-all",
+          "name": {
+            "en": "iptv-org: all channels",
+            "es": "iptv-org: todos los canales"
+          },
+          "url": "https://iptv-org.github.io/iptv/index.m3u",
+          "channels": 11138
+        }
+      ]
+    }
+  ]
+}
