@@ -1,3 +1,254 @@
-{
-'a':'a'
-}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Listas para CarStream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  body { margin: 0; }
+  /* Layout: una columna de lectura; arriba el «cómo», luego un directorio filtrable de filas tipo guía de canales. */
+  :root {
+    --bg: #f3f5f7;
+    --surface: #ffffff;
+    --fg: #16202a;
+    --muted: #5b6874;
+    --line: #d9dfe5;
+    --accent: #c77a12;
+    --accent-ink: #ffffff;
+    --chip: #e7ebef;
+    --ok: #1f7a4d;
+    --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+    --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f151b; --surface: #17212a; --fg: #e6ecf1; --muted: #93a1ad; --line: #283541;
+      --accent: #f0a63a; --accent-ink: #1a1206; --chip: #22303b; --ok: #4cc28a; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f151b; --surface: #17212a; --fg: #e6ecf1; --muted: #93a1ad; --line: #283541;
+    --accent: #f0a63a; --accent-ink: #1a1206; --chip: #22303b; --ok: #4cc28a; color-scheme: dark;
+  }
+
+  body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.5; }
+  .wrap { max-width: 860px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 64px; display: grid; gap: 32px; }
+
+  header { display: grid; gap: 10px; }
+  .eyebrow { font-family: var(--display); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-size: 15px; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(40px, 8vw, 64px); line-height: 0.95; margin: 0; text-wrap: balance; }
+  .lede { color: var(--muted); max-width: 62ch; margin: 0; }
+
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); min-width: 0; }
+  .steps li::before { content: counter(step); font-family: var(--display); font-weight: 700; font-size: 28px; line-height: 1; color: var(--accent); }
+  .steps b { font-weight: 700; }
+
+  .controls { display: grid; gap: 12px; position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); padding-block: 12px; z-index: 2; border-bottom: 1px solid var(--line); }
+  .search { width: 100%; font: inherit; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+  .search:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font: inherit; font-size: 15px; padding: 8px 14px; min-height: 40px; border-radius: 999px; border: 1px solid transparent; background: var(--chip); color: var(--fg); cursor: pointer; }
+  .chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+
+  section { display: grid; gap: 4px; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 26px; letter-spacing: 0.02em; margin: 0 0 8px; text-transform: uppercase; }
+  .list { display: grid; border-top: 1px solid var(--line); }
+  .row { display: grid; grid-template-columns: 52px 1fr auto; gap: 4px 14px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
+  .code { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: 0.04em; display: grid; place-items: center; width: 52px; height: 40px; border-radius: 8px; border: 2px solid var(--fg); }
+  .info { min-width: 0; display: grid; gap: 2px; }
+  .name { font-weight: 700; }
+  .count { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+  .url { font-family: var(--mono); font-size: 13px; color: var(--muted); overflow-wrap: anywhere; user-select: all; }
+  .actions { display: flex; gap: 8px; }
+  .btn { font: inherit; font-weight: 700; font-size: 15px; min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; white-space: nowrap; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn.done { background: var(--ok); border-color: var(--ok); color: var(--surface); }
+  .qr { grid-column: 2 / -1; display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; padding-top: 10px; }
+  .qr-box { background: #ffffff; padding: 10px; border-radius: 8px; line-height: 0; }
+  .qr-box img, .qr-box canvas { width: 168px; height: 168px; }
+  .qr p { margin: 0; color: var(--muted); font-size: 14px; max-width: 34ch; }
+
+  .empty { color: var(--muted); padding: 24px 0; }
+  footer { color: var(--muted); font-size: 14px; display: grid; gap: 8px; max-width: 70ch; }
+  footer a { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 52px 1fr; }
+    .actions { grid-column: 1 / -1; }
+    .actions .btn { flex: 1; }
+    .qr { grid-column: 1 / -1; grid-template-columns: 1fr; justify-items: start; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .btn, .chip { transition: background-color .15s ease, color .15s ease; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Listas M3U gratuitas</div>
+    <h1>Listas para CarStream</h1>
+    <p class="lede">Canales de TV que ya se emiten gratis en internet, ordenados por país, idioma y tema. Copia el enlace de una lista y pégalo en CarStream, o escanea su código QR.</p>
+  </header>
+
+  <ol class="steps" aria-label="Cómo agregar una lista">
+    <li><span>En CarStream abre <b>Listas</b> → <b>Agregar</b> → <b>Listas sugeridas</b> y toca <b>Agregar</b>. Así de fácil.</span></li>
+    <li><span>¿Otra lista? Toca <b>Copiar enlace</b> aquí y en CarStream ve a <b>Listas</b> → <b>Agregar</b> → <b>Agregar por URL</b>.</span></li>
+    <li><span>Pega el enlace y toca <b>Agregar</b>. O toca <b>Escanear código QR</b> y apunta a esta pantalla.</span></li>
+  </ol>
+
+  <div class="controls">
+    <input id="search" class="search" type="search" placeholder="Buscar: México, noticias, deportes…" autocomplete="off" aria-label="Buscar listas">
+    <div class="chips" role="group" aria-label="Filtrar por tipo">
+      <button class="chip" data-filter="all" aria-pressed="true">Todas</button>
+      <button class="chip" data-filter="country" aria-pressed="false">Por país</button>
+      <button class="chip" data-filter="language" aria-pressed="false">Por idioma</button>
+      <button class="chip" data-filter="topic" aria-pressed="false">Por tema</button>
+      <button class="chip" data-filter="big" aria-pressed="false">Listas grandes</button>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+  <p id="empty" class="empty" hidden>No hay listas con ese nombre. Prueba con un país o un tema.</p>
+
+  <footer>
+    <p>Las listas vienen de <a href="https://github.com/iptv-org/iptv" target="_blank" rel="noopener">iptv-org</a> y <a href="https://github.com/Free-TV/IPTV" target="_blank" rel="noopener">Free-TV</a>, proyectos abiertos que recopilan canales que sus dueños emiten gratis. Los números de canales son aproximados y cambian con el tiempo.</p>
+    <p>Algunos canales pueden no funcionar o solo verse en ciertos países. CarStream no aloja ningún canal. Las listas grandes tardan un poco más en cargar.</p>
+  </footer>
+</div>
+
+<script>
+  // Las listas vienen de lists.json (el mismo archivo que lee la app). Para cambiarlas, se edita ese archivo.
+  let SECTIONS = [];
+  const pick = (texts) => texts?.es || texts?.en || Object.values(texts || {})[0] || "";
+  async function loadLists() {
+    try {
+      const response = await fetch("lists.json", { cache: "no-store" });
+      if (!response.ok) throw new Error(response.status);
+      const catalog = await response.json();
+      SECTIONS = (catalog.sections || []).map((section) => ({
+        id: section.id,
+        title: pick(section.title),
+        items: (section.lists || [])
+          .filter((list) => list.id && list.url && /^https?:\/\//i.test(list.url))
+          .map((list) => [list.region || pick(list.name).slice(0, 3).toUpperCase(), pick(list.name), list.url, list.channels]),
+      })).filter((section) => section.items.length);
+      render();
+    } catch (error) {
+      emptyEl.textContent = "No se pudieron cargar las listas. Vuelve a intentarlo en un momento.";
+      emptyEl.hidden = false;
+    }
+  }
+
+  const fmt = new Intl.NumberFormat("es");
+  const sectionsEl = document.getElementById("sections");
+  const emptyEl = document.getElementById("empty");
+  const searchEl = document.getElementById("search");
+  let filter = "all";
+
+  const normalize = (text) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+  function render() {
+    const query = normalize(searchEl.value.trim());
+    sectionsEl.replaceChildren();
+    let shown = 0;
+    for (const section of SECTIONS) {
+      if (filter !== "all" && filter !== section.id) continue;
+      const items = section.items.filter(([code, name, path]) =>
+        !query || normalize(`${code} ${name} ${path} ${section.title}`).includes(query));
+      if (!items.length) continue;
+      shown += items.length;
+      const wrap = document.createElement("section");
+      const heading = document.createElement("h2");
+      heading.textContent = section.title;   // el texto viene de lists.json: nunca como HTML
+      wrap.append(heading);
+      const list = document.createElement("div");
+      list.className = "list";
+      for (const item of items) list.append(row(item));
+      wrap.append(list);
+      sectionsEl.append(wrap);
+    }
+    emptyEl.hidden = shown > 0;
+  }
+
+  function row([code, name, path, count]) {
+    const url = path;
+    const el = document.createElement("div");
+    el.className = "row";
+    el.innerHTML = `
+      <div class="code" aria-hidden="true"></div>
+      <div class="info">
+        <div class="name"></div>
+        <div class="count"></div>
+        <div class="url"></div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" type="button">Copiar enlace</button>
+        <button class="btn" type="button" aria-expanded="false">QR</button>
+      </div>`;
+    el.querySelector(".code").textContent = code;
+    el.querySelector(".name").textContent = name;
+    el.querySelector(".count").textContent = count ? `${fmt.format(count)} canales` : "";
+    el.querySelector(".url").textContent = url;
+    const [copyBtn, qrBtn] = el.querySelectorAll("button");
+    copyBtn.addEventListener("click", () => copy(url, copyBtn, el.querySelector(".url")));
+    qrBtn.addEventListener("click", () => toggleQR(el, url, qrBtn));
+    return el;
+  }
+
+  async function copy(url, button, urlEl) {
+    try {
+      await navigator.clipboard.writeText(url);
+      button.textContent = "Copiado";
+      button.classList.add("done");
+      setTimeout(() => { button.textContent = "Copiar enlace"; button.classList.remove("done"); }, 1800);
+    } catch {
+      // Sin acceso al portapapeles: se selecciona el enlace para copiarlo a mano.
+      const range = document.createRange();
+      range.selectNodeContents(urlEl);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      button.textContent = "Selecciona y copia";
+    }
+  }
+
+  function toggleQR(rowEl, url, button) {
+    const open = rowEl.querySelector(".qr");
+    if (open) {
+      open.remove();
+      button.setAttribute("aria-expanded", "false");
+      return;
+    }
+    const box = document.createElement("div");
+    box.className = "qr";
+    box.innerHTML = `<div class="qr-box"></div><p>En CarStream: Listas → Agregar → Agregar por URL → Escanear código QR.</p>`;
+    rowEl.append(box);
+    button.setAttribute("aria-expanded", "true");
+    if (window.QRCode) {
+      new QRCode(box.querySelector(".qr-box"), { text: url, width: 168, height: 168, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M });
+    } else {
+      box.querySelector(".qr-box").replaceWith(Object.assign(document.createElement("p"), { textContent: "No se pudo crear el código QR. Usa «Copiar enlace»." }));
+    }
+  }
+
+  for (const chip of document.querySelectorAll(".chip")) {
+    chip.addEventListener("click", () => {
+      filter = chip.dataset.filter;
+      for (const other of document.querySelectorAll(".chip")) other.setAttribute("aria-pressed", String(other === chip));
+      render();
+    });
+  }
+  searchEl.addEventListener("input", render);
+  loadLists();
+</script>
+
+</body>
+</html>
