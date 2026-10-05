@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CarStream Privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+  body { margin: 0; }
+  :root {
+    --bg: #f3f5f7; --surface: #ffffff; --fg: #16202a; --muted: #5b6874; --line: #d9dfe5; --accent: #0f766e;
+    --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+    --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f151b; --surface: #17212a; --fg: #e6ecf1; --muted: #93a1ad; --line: #283541; --accent: #2dd4bf; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f151b; --surface: #17212a; --fg: #e6ecf1; --muted: #93a1ad; --line: #283541; --accent: #2dd4bf; color-scheme: dark;
+  }
+  body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+  .wrap { max-width: 760px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 64px; display: grid; gap: 28px; }
+  .eyebrow { font-family: var(--display); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-size: 15px; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(40px, 8vw, 60px); line-height: 0.95; margin: 6px 0 0; text-wrap: balance; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase; margin: 0; }
+  .lang { display: flex; gap: 16px; font-weight: 700; }
+  a { color: var(--accent); }
+  article { display: grid; gap: 14px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .summary { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 0; }
+  dl { margin: 0; display: grid; gap: 12px; }
+  dt { font-weight: 700; }
+  dd { margin: 2px 0 0; color: var(--muted); }
+  p { margin: 0; max-width: 68ch; }
+  .meta { color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">CarStream</div>
+    <h1>Privacy · Privacidad</h1>
+  </header>
+  <nav class="lang" aria-label="Language"><a href="#en">English</a><a href="#es" hreflang="es">Español</a></nav>
+
+  <article id="en" lang="en">
+    <h2>Privacy Policy</h2>
+    <p class="summary"><b>CarStream does not collect any data.</b> It has no accounts, no analytics, no ads and no tracking, and the developer runs no server that receives information about you.</p>
+    <dl>
+      <dt>What stays on your iPhone</dt>
+      <dd>Your playlists, favorites, watch history and resume positions, and the videos you import, are stored only on your device. Deleting the app deletes them.</dd>
+      <dt>Network connections</dt>
+      <dd>CarStream connects only to the playlists and streams you add or choose, to the image addresses those playlists include (channel logos), and to the developer's public list of suggested playlists (a small file on GitHub Pages). These servers belong to third parties and may see your IP address, like any website you visit; CarStream sends them no personal information.</dd>
+      <dt>Camera</dt>
+      <dd>Used only to read a playlist's QR code while you are scanning. No photos or video are saved or sent.</dd>
+      <dt>Local network</dt>
+      <dd>Used to receive videos from devices on your own network (DLNA). Screen mirroring to the car happens entirely on your iPhone.</dd>
+      <dt>Purchases</dt>
+      <dd>The free trial and CarStream Pro are handled by Apple. CarStream checks them on your iPhone with Apple's StoreKit and never sees your payment details. See Apple's privacy policy for how Apple handles purchases.</dd>
+      <dt>Children</dt>
+      <dd>CarStream does not knowingly collect information from anyone, including children.</dd>
+      <dt>Changes and contact</dt>
+      <dd>If this policy changes, this page will be updated with a new date. Questions: <a href="mailto:igmer@me.com">igmer@me.com</a>.</dd>
+    </dl>
+    <p class="meta">Last updated: October 5, 2026.</p>
+  </article>
+
+  <article id="es" lang="es">
+    <h2>Política de privacidad</h2>
+    <p class="summary"><b>CarStream no recopila ningún dato.</b> No tiene cuentas, analíticas, anuncios ni rastreo, y el desarrollador no tiene ningún servidor que reciba información sobre ti.</p>
+    <dl>
+      <dt>Lo que queda en tu iPhone</dt>
+      <dd>Tus listas, favoritos, historial, posiciones para seguir viendo y los videos que importas se guardan solo en tu dispositivo. Si borras la app, se borran.</dd>
+      <dt>Conexiones de red</dt>
+      <dd>CarStream solo se conecta a las listas y transmisiones que agregas o eliges, a las direcciones de imágenes que esas listas incluyen (logos de canales) y a la lista pública de listas sugeridas del desarrollador (un archivo pequeño en GitHub Pages). Esos servidores son de terceros y pueden ver tu dirección IP, como cualquier sitio web que visitas; CarStream no les envía información personal.</dd>
+      <dt>Cámara</dt>
+      <dd>Solo se usa para leer el código QR de una lista mientras escaneas. No se guardan ni se envían fotos ni video.</dd>
+      <dt>Red local</dt>
+      <dd>Se usa para recibir videos de dispositivos de tu propia red (DLNA). La duplicación de pantalla al auto ocurre por completo en tu iPhone.</dd>
+      <dt>Compras</dt>
+      <dd>La prueba gratis y CarStream Pro las gestiona Apple. CarStream las verifica en tu iPhone con StoreKit de Apple y nunca ve tus datos de pago. Consulta la política de privacidad de Apple para saber cómo gestiona las compras.</dd>
+      <dt>Menores</dt>
+      <dd>CarStream no recopila a sabiendas información de nadie, incluidos menores.</dd>
+      <dt>Cambios y contacto</dt>
+      <dd>Si esta política cambia, esta página se actualizará con una fecha nueva. Preguntas: <a href="mailto:igmer@me.com">igmer@me.com</a>.</dd>
+    </dl>
+    <p class="meta">Última actualización: 5 de octubre de 2026.</p>
+  </article>
+</div>
+</body>
+</html>
