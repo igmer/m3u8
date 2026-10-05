@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CarStream Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+  body { margin: 0; }
+  :root {
+    --bg: #f3f5f7; --surface: #ffffff; --fg: #16202a; --muted: #5b6874; --line: #d9dfe5; --accent: #0f766e;
+    --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+    --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f151b; --surface: #17212a; --fg: #e6ecf1; --muted: #93a1ad; --line: #283541; --accent: #2dd4bf; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f151b; --surface: #17212a; --fg: #e6ecf1; --muted: #93a1ad; --line: #283541; --accent: #2dd4bf; color-scheme: dark;
+  }
+  body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+  .wrap { max-width: 760px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 64px; display: grid; gap: 28px; }
+  .eyebrow { font-family: var(--display); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-size: 15px; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(40px, 8vw, 60px); line-height: 0.95; margin: 6px 0 0; text-wrap: balance; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase; margin: 0; }
+  .lang { display: flex; gap: 16px; font-weight: 700; }
+  a { color: var(--accent); }
+  article { display: grid; gap: 14px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .summary { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 0; }
+  dl { margin: 0; display: grid; gap: 12px; }
+  dt { font-weight: 700; }
+  dd { margin: 2px 0 0; color: var(--muted); }
+  p { margin: 0; max-width: 68ch; }
+  .meta { color: var(--muted); font-size: 14px; }
+  .contact { font-size: 18px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">CarStream</div>
+    <h1>Support · Soporte</h1>
+  </header>
+  <nav class="lang" aria-label="Language"><a href="#en">English</a><a href="#es" hreflang="es">Español</a></nav>
+
+  <article id="en" lang="en">
+    <h2>Help</h2>
+    <p class="contact">Write to <a href="mailto:igmer@me.com">igmer@me.com</a>. Include your iPhone model, iOS version and, for car questions, your car's make and model.</p>
+    <dl>
+      <dt>How do I add a playlist?</dt>
+      <dd>Open <b>Playlists</b> → <b>Add</b>. Pick one of the <b>Suggested Playlists</b>, paste an M3U link with <b>Add by URL</b>, or scan its QR code. CarStream includes no channels of its own: it plays the playlists you add.</dd>
+      <dt>A channel doesn't play</dt>
+      <dd>Free channels go offline or change their address often. Try another channel or refresh the playlist. CarStream tries a second player (VLC) automatically for formats the system player can't open.</dd>
+      <dt>How do I watch in the car?</dt>
+      <dd>Connect your iPhone to CarPlay and open CarStream on the car's screen. Video plays only while the car is parked.</dd>
+      <dt>What is CarStream Pro?</dt>
+      <dd>A one-time purchase that unlocks video on the car's screen without limits and screen mirroring in the car. You can try it free for 7 days first. Everything on the iPhone, all playlists and sound in the car stay free.</dd>
+      <dt>I bought Pro on another iPhone or reinstalled the app</dt>
+      <dd>Open <b>About</b> → <b>CarStream Pro</b> → <b>Restore Purchases</b>, signed in with the same Apple Account. Pro is shared with your Family Sharing group.</dd>
+      <dt>Refunds</dt>
+      <dd>Purchases are handled by Apple. Request a refund at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</dd>
+      <dt>Privacy</dt>
+      <dd>CarStream collects no data. Read the <a href="privacy.html">privacy policy</a>.</dd>
+    </dl>
+  </article>
+
+  <article id="es" lang="es">
+    <h2>Ayuda</h2>
+    <p class="contact">Escribe a <a href="mailto:igmer@me.com">igmer@me.com</a>. Incluye el modelo de tu iPhone, la versión de iOS y, si es sobre el auto, la marca y el modelo del auto.</p>
+    <dl>
+      <dt>¿Cómo agrego una lista?</dt>
+      <dd>Abre <b>Listas</b> → <b>Agregar</b>. Elige una de las <b>Listas sugeridas</b>, pega un enlace M3U con <b>Agregar por URL</b> o escanea su código QR. CarStream no incluye canales propios: reproduce las listas que tú agregas.</dd>
+      <dt>Un canal no se reproduce</dt>
+      <dd>Los canales gratuitos se caen o cambian de dirección con frecuencia. Prueba otro canal o actualiza la lista. CarStream intenta solo un segundo reproductor (VLC) con los formatos que el del sistema no abre.</dd>
+      <dt>¿Cómo lo veo en el auto?</dt>
+      <dd>Conecta tu iPhone a CarPlay y abre CarStream en la pantalla del auto. El video se ve solo con el auto estacionado.</dd>
+      <dt>¿Qué es CarStream Pro?</dt>
+      <dd>Un pago único que desbloquea el video en la pantalla del auto sin límite y la duplicación de pantalla en el auto. Puedes probarlo gratis 7 días antes. Todo en el iPhone, todas las listas y el sonido en el auto siguen gratis.</dd>
+      <dt>Compré Pro en otro iPhone o reinstalé la app</dt>
+      <dd>Abre <b>Acerca de</b> → <b>CarStream Pro</b> → <b>Restaurar compras</b>, con la misma cuenta de Apple. Pro se comparte con tu grupo de Compartir en familia.</dd>
+      <dt>Reembolsos</dt>
+      <dd>Las compras las gestiona Apple. Pide un reembolso en <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</dd>
+      <dt>Privacidad</dt>
+      <dd>CarStream no recopila datos. Lee la <a href="privacy.html">política de privacidad</a>.</dd>
+    </dl>
+  </article>
+</div>
+</body>
+</html>
